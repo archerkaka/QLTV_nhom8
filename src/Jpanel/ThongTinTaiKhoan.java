@@ -7,6 +7,7 @@ package Jpanel;
 
 import static Controller.controller.delete_employee_controller;
 import static Controller.controller.get_all_nhanvien_controller;
+import static Controller.controller.get_permission_list;
 import DAL.Nhanvien_Entity;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
@@ -29,6 +30,11 @@ public class ThongTinTaiKhoan extends javax.swing.JPanel {
     public ThongTinTaiKhoan() {
         initComponents();
         set_Disable();
+        CB_ChucVu.removeAllItems();
+        int size_tentacgia = get_permission_list().size();
+        for(int i=0; i < size_tentacgia; i++){
+            CB_ChucVu.addItem(get_permission_list().get(i).toString());
+        }
         push_data_to_table(get_all_nhanvien_controller());
         jTable1.addMouseListener(new MouseAdapter() {
                 public void mouseClicked(MouseEvent e){
@@ -49,6 +55,10 @@ public class ThongTinTaiKhoan extends javax.swing.JPanel {
         TF_TenDangNhap.setText(nhanvienlist.get(rowNumber).get_tennhanvien());
         TF_Pass.setText(nhanvienlist.get(rowNumber).get_matkhau());
         CB_MaNhanVien.setText(nhanvienlist.get(rowNumber).get_manhanvien());
+        if (nhanvienlist.get(rowNumber).get_maquyen().equals("Q01"))
+            CB_ChucVu.setSelectedItem("admin");
+        else 
+            CB_ChucVu.setSelectedItem("user");
     }
     static public void push_data_to_table(ArrayList<Nhanvien_Entity> list){
         DefaultTableModel dtm = (DefaultTableModel) jTable1.getModel();

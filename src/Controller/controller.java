@@ -19,6 +19,7 @@ import static DAL.DataAccess.get_book_by_masach;
 import static DAL.DataAccess.get_book_by_ten_sach;
 import static DAL.DataAccess.get_book_list_by_code;
 import static DAL.DataAccess.get_book_list_by_name;
+import static DAL.DataAccess.get_list_permission;
 import static DAL.DataAccess.get_maTG;
 import static DAL.DataAccess.get_maTL;
 import static DAL.DataAccess.get_tentacgia_by_matg;
@@ -140,5 +141,8 @@ public class controller {
            JOptionPane.showMessageDialog(null, "Xóa thất bại",
                   "Title", JOptionPane.WARNING_MESSAGE);
        }
+   }
+   public static ArrayList get_permission_list(){
+       return get_list_permission();
    }
 }

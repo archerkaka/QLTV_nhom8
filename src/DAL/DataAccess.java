@@ -500,5 +500,20 @@ public class DataAccess {
         else 
             return false;
     }
+    static String get_list_permission="SELECT * FROM QUYEN";
+    static public ArrayList get_list_permission(){
+        ArrayList quyen = new ArrayList();
+        try {
+            ps = conn.prepareStatement(get_list_permission);
+            rs =  ps.executeQuery();
+            while (rs.next())
+            {
+                quyen.add(rs.getString("TenQuyen"));
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(DataAccess.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return quyen;
+    }
     
 }

@@ -30,10 +30,12 @@ public class ThemSach extends javax.swing.JPanel {
         CB_TheLoai.removeAllItems();
         TF_MaSach.setText(null);
        TF_TenSach.setText(null);
+       // load tên tác giả lên combo box
         int size_tentacgia = getTenTacGia().size();
         for(int i=0; i < size_tentacgia; i++){
             CB_TacGia.addItem(getTenTacGia().get(i).toString());
         }
+        // load tên thể loại lên combo box
         int size_theloai = getTheLoai().size();
          for(int i=0; i < size_theloai; i++){
             CB_TheLoai.addItem(getTheLoai().get(i).toString());
@@ -225,9 +227,11 @@ public class ThemSach extends javax.swing.JPanel {
 
     private void BT_saveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BT_saveActionPerformed
         // TODO add your handling code here:
+        // xử lý Btn_save
         try{
             String masach, tensach, matheloai, matacgia, nhaxuatban;
             int trigia, namxuatban, soluong;
+            // lấy các giá trị từ người dùng
             Date ngaynhap = new java.sql.Date(Date_Ngaynhap.getDate().getTime());
             trigia = Integer.parseInt(FF_TriGia.getText().replaceAll(",", ""));
             namxuatban = Integer.parseInt(TF_NamSuatban.getText());
@@ -237,6 +241,7 @@ public class ThemSach extends javax.swing.JPanel {
             nhaxuatban = TF_NXB.getText();
             matheloai = get_matheloai(CB_TheLoai.getSelectedItem().toString());
             matacgia = get_matacgia(CB_TacGia.getSelectedItem().toString());
+            // thêm sách
             add_new_book_controller(masach, tensach, matheloai, matacgia, namxuatban, nhaxuatban, trigia, ngaynhap, soluong);
         }catch(Exception e)
         {
@@ -247,6 +252,8 @@ public class ThemSach extends javax.swing.JPanel {
 
     private void BT_resetActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BT_resetActionPerformed
         // TODO add your handling code here:
+        // xử lý Btn_reset
+        // màn hình trở về trạng thái chưa có thông tin
        FF_TriGia.setText("");
        TF_NamSuatban.setText("");
        SN_SoLuong.setValue(1);

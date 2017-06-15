@@ -39,22 +39,24 @@ public class ThongTinSach extends javax.swing.JPanel {
         initComponents();
         set_disable();
        CB_CachTimKiem.removeAllItems();
-       CB_CachTimKiem.addItem("Tất cả");
-       CB_CachTimKiem.addItem("Tên Sách");
-       CB_CachTimKiem.addItem("Mã Sách");      
-       push_data_to_table(get_all_book_controller());
-       jTable1.addMouseListener(new MouseAdapter() {
+       CB_CachTimKiem.addItem("Tất cả"); // hiển thị tất cả sách cùng thông tin sách
+       CB_CachTimKiem.addItem("Tên Sách"); // tìm theo tên sách
+       CB_CachTimKiem.addItem("Mã Sách");      // tìm theo mã sách
+       push_data_to_table(get_all_book_controller()); // lấy thông tin từ csdl
+       jTable1.addMouseListener(new MouseAdapter() {    // lấy thông tin sách được chọn từ table
                 public void mouseClicked(MouseEvent e){
-                    rowNumber = jTable1.getSelectedRow();
-                    loadDataTOView(rowNumber);                   
+                    rowNumber = jTable1.getSelectedRow(); 
+                    loadDataTOView(rowNumber); // load lên các xử lý để sửa đổi thông tin tiện lợi           
                 }   
        });
        CB_TacGia.removeAllItems();
        CB_TheLoai.removeAllItems();
        int size_tentacgia = getTenTacGia().size();
+       // load combo box tên tác giả
         for(int i=0; i < size_tentacgia; i++){
             CB_TacGia.addItem(getTenTacGia().get(i).toString());
         }
+       // load combo box tên thể loại
         int size_theloai = getTheLoai().size();
          for(int i=0; i < size_theloai; i++){
             CB_TheLoai.addItem(getTheLoai().get(i).toString());
@@ -74,6 +76,7 @@ public class ThongTinSach extends javax.swing.JPanel {
         CB_TheLoai.setSelectedItem(theloai);
     }
     private void set_disable(){
+        // tắt một số xử lý ở trạng thái cụ thể
         TF_MaSach.setEditable(false);
         TF_TenSach.setEditable(false);
         TF_NXB.setEditable(false);
@@ -84,6 +87,7 @@ public class ThongTinSach extends javax.swing.JPanel {
         BT_luu.setEnabled(false);             
     }
     private void set_enable(){
+        // bật một số xử lý ở trạng thái cụ thể
         TF_MaSach.setEditable(true);
         TF_TenSach.setEditable(true);
         TF_NXB.setEditable(true);
@@ -94,9 +98,11 @@ public class ThongTinSach extends javax.swing.JPanel {
         BT_luu.setEnabled(true);             
     }
     static public void reload_book_data_table(){
+        // loa toàn bộ sách cùng thông tin trong csdl nếu reload
         push_data_to_table(get_all_book_controller());
     }
     static public void push_data_to_table(ArrayList<Sach_Entity> list){
+        // hàm lấy thông tin từ csdl và hiển thị lên table
         DefaultTableModel dtm = (DefaultTableModel) jTable1.getModel();
         Vector cols = new Vector();
         booklist = list;

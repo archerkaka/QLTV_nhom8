@@ -33,6 +33,7 @@ public class ThongTinPhienBan extends javax.swing.JPanel {
         jLabel4 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
 
+        setForeground(new java.awt.Color(153, 0, 153));
         setPreferredSize(new java.awt.Dimension(1127, 618));
 
         jLabel1.setFont(new java.awt.Font("Tahoma", 3, 30)); // NOI18N
@@ -40,11 +41,14 @@ public class ThongTinPhienBan extends javax.swing.JPanel {
 
         jLabel2.setText("Quản Lý Thư Viện  version 1.0");
 
+        jLabel3.setForeground(new java.awt.Color(153, 0, 153));
         jLabel3.setText("14520968 - Lê Trần Thế Toản");
 
-        jLabel4.setText("14520968 - Lê Trần Thế Toản");
+        jLabel4.setForeground(new java.awt.Color(153, 0, 153));
+        jLabel4.setText("14520395 - Nguyễn Thị Như Huỳnh");
 
-        jLabel5.setText("14520968 - Lê Trần Thế Toản");
+        jLabel5.setForeground(new java.awt.Color(153, 0, 153));
+        jLabel5.setText("14520401 - Trương Ngọc Kha");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);

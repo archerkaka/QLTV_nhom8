@@ -400,7 +400,7 @@ public class ThongTinSach extends javax.swing.JPanel {
 
     private void BT_timActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BT_timActionPerformed
         // TODO add your handling code here:
-        if (CB_CachTimKiem.getSelectedItem() == "Tất cả"){
+        if (CB_CachTimKiem.getSelectedItem() == "Tất cả"){  //tìm kiếm tất cả
             JOptionPane.showMessageDialog(null, "tatca" ,
                   "Title", JOptionPane.WARNING_MESSAGE);
             push_data_to_table(get_all_book_controller());
@@ -411,12 +411,12 @@ public class ThongTinSach extends javax.swing.JPanel {
                   "Title", JOptionPane.WARNING_MESSAGE);
             return;
         }
-        if (CB_CachTimKiem.getSelectedItem() == "Tên Sách"){
+        if (CB_CachTimKiem.getSelectedItem() == "Tên Sách"){ //tim kiếm theo tên sách
             JOptionPane.showMessageDialog(null, "tensach" ,
                   "Title", JOptionPane.WARNING_MESSAGE);
             push_data_to_table(find_book_by_ts(TF_TuTimKiem.getText()));
         }
-        if (CB_CachTimKiem.getSelectedItem() == "Mã Sách"){
+        if (CB_CachTimKiem.getSelectedItem() == "Mã Sách"){ //tìm kiếm theo mã sách
             JOptionPane.showMessageDialog(null, "masach" ,
                   "Title", JOptionPane.WARNING_MESSAGE);
             push_data_to_table(find_book_by_ms(TF_TuTimKiem.getText()));
@@ -426,7 +426,7 @@ public class ThongTinSach extends javax.swing.JPanel {
 
     private void BT_suaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BT_suaActionPerformed
         // TODO add your handling code here:
-        set_enable();
+        set_enable(); //Sửa thông tin sách vừa tìm được
     }//GEN-LAST:event_BT_suaActionPerformed
 
     private void BT_luuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BT_luuActionPerformed
@@ -443,7 +443,7 @@ public class ThongTinSach extends javax.swing.JPanel {
         if (update_sach_controller(masach, tensach, matl, matg, namxuatban, nhaxuatban, trigia, soluongton) == true){
             set_disable();
             push_data_to_table(get_all_book_controller());
-        }
+        } //Lưu thông tin sách vừa được sửa
     }//GEN-LAST:event_BT_luuActionPerformed
 
     private void BT_huyActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BT_huyActionPerformed
@@ -451,7 +451,7 @@ public class ThongTinSach extends javax.swing.JPanel {
         if (rowNumber == 10000000) return;
         loadDataTOView(rowNumber);   
         set_disable();
-        
+        //huỵ mọi thay đổi thông tin sách
     }//GEN-LAST:event_BT_huyActionPerformed
 
     private void BT_xoaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BT_xoaActionPerformed
@@ -463,7 +463,7 @@ public class ThongTinSach extends javax.swing.JPanel {
             push_data_to_table(get_all_book_controller()); 
         }else{
             return;
-        }
+        } //Xoá thông tin sách vừa tìm được
     }//GEN-LAST:event_BT_xoaActionPerformed
 
 

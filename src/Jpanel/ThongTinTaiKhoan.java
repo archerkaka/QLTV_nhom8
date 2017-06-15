@@ -55,7 +55,7 @@ public class ThongTinTaiKhoan extends javax.swing.JPanel {
         TF_TenDangNhap.setText(nhanvienlist.get(rowNumber).get_tennhanvien());
         TF_Pass.setText(nhanvienlist.get(rowNumber).get_matkhau());
         CB_MaNhanVien.setText(nhanvienlist.get(rowNumber).get_manhanvien());
-        if (nhanvienlist.get(rowNumber).get_maquyen().equals("Q01"))
+        if (nhanvienlist.get(rowNumber).get_maquyen().equals("Q01")) //Kiểm tra quyền của tài khoản
             CB_ChucVu.setSelectedItem("admin");
         else 
             CB_ChucVu.setSelectedItem("user");
@@ -267,19 +267,19 @@ public class ThongTinTaiKhoan extends javax.swing.JPanel {
             push_data_to_table(get_all_nhanvien_controller());
         }else{
             return;
-        }
+        } //Xoá tài khoản hiện tại
     }//GEN-LAST:event_BT_XoaActionPerformed
 
     private void BT_SuaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BT_SuaActionPerformed
         // TODO add your handling code here:
-        set_Enable();
+        set_Enable(); //Sữa thông tin tài khoản hiện tại
     }//GEN-LAST:event_BT_SuaActionPerformed
 
     private void BT_HuyActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BT_HuyActionPerformed
         // TODO add your handling code here:
         if (rowNumber == 1000000) return;
         loadDataToView(rowNumber);   
-        set_Disable();
+        set_Disable(); //Huỷ mọi thay đổi thông tin cho tài khoản hiện tại
     }//GEN-LAST:event_BT_HuyActionPerformed
 
 

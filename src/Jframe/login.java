@@ -190,7 +190,7 @@ public class login extends javax.swing.JFrame {
         
         if (logincontroller.loginValidate(username,password) == true){
             if (RB_saveUP.isSelected()){
-                save_username_and_password(username);
+                save_username_and_password(username); //Lưu username và password
             }
             this.dispose();
         }

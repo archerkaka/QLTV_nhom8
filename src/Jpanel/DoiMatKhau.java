@@ -122,10 +122,10 @@ public class DoiMatKhau extends javax.swing.JPanel {
         String matkhau = Pass_MatKhauHienTai.getText();
         String matkhaumoi = Pass_MatKhauMoi.getText();
         String xacnhanmatkhau = Pass_NhapLaiMatKhauMoi.getText();
-        if (matkhaumoi.equals(xacnhanmatkhau)){
+        if (matkhaumoi.equals(xacnhanmatkhau)){     //Mật khẩu mới giống với xác nhận mật khẩu
             changPassword(matkhau, matkhaumoi);
         }else{
-            JOptionPane.showMessageDialog(null,matkhaumoi + "Mật khẩu không khớp" + xacnhanmatkhau ,
+            JOptionPane.showMessageDialog(null,matkhaumoi + "Mật khẩu không khớp" + xacnhanmatkhau , //popup message thông báo nếu mật khẩu không khớp 
                   "Title", JOptionPane.WARNING_MESSAGE);
         }
     }//GEN-LAST:event_BT_saveActionPerformed
